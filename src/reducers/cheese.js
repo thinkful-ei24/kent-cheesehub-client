@@ -1,4 +1,8 @@
-import * as actions from '../actions'
+import {
+  FETCH_CHEESES_REQUEST,
+  FETCH_CHEESES_SUCCESS,
+  FETCH_CHEESES_ERROR
+} from '../actions/cheese'
 
 const initialState = {
   cheeses: [],
@@ -6,19 +10,19 @@ const initialState = {
   error: null
 }
 
-
-const cheeseReducer = (state=initialState, action) => {
-  if (action.type === actions.FETCH_CHEESE_REQUEST) {
+export const cheeseReducer = (state=initialState, action) => {
+  if (action.type === FETCH_CHEESES_REQUEST) {
+    console.log('request ran');
     return Object.assign({}, state, {
       loading: true
     })
-  } else if (action.type === actions.FETCH_CHEESE_SUCCESS) {
+  } else if (action.type === FETCH_CHEESES_SUCCESS) {
     return Object.assign({}, state, {
       loading: false,
       error: null,
       cheeses: action.cheeses
     })
-  } else if (action.type === actions.FETCH_ERROR) {
+  } else if (action.type === FETCH_CHEESES_ERROR) {
     return Object.assign({}, state, {
       loading: false,
       error: action.error
