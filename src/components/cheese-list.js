@@ -1,10 +1,10 @@
 import React from 'react';
 
 function CheeseList(props) {
+  const cheeses = props.cheeses.map(cheese => <li>{cheese}</li>)
   return (
     <ul>
-      <li>cheese1</li>
-      <li>cheese2</li>
+      {cheeses}
     </ul>
   )
 }
